@@ -1,7 +1,9 @@
-Vehicle Price Prediction Pipeline
-Overview
+# Vehicle Price Prediction Pipeline
+
+**Overview**
 This project implements a machine learning pipeline for predicting vehicle prices using ensemble methods (XGBoost, LightGBM, CatBoost) with cross-validation and hyperparameter tuning. The pipeline preprocesses a dataset with features like model_year, milage, and categorical columns (e.g., brand, model), trains multiple models, and blends their predictions to generate a final submission. The project is designed for a regression task, optimized for RMSE (Root Mean Squared Error), and supports categorical features natively.
-Features
+
+**Features**
 
 Data Preprocessing: Handles missing values, categorical features, and feature engineering.
 Model Training: Uses XGBoost, LightGBM, and CatBoost with 5-fold cross-validation.
@@ -9,7 +11,7 @@ Hyperparameter Tuning: Optimizes model parameters using GridSearchCV or Optuna.
 Ensemble Blending: Combines predictions from multiple models and optional external submissions (sub_1, sub_2).
 Logging and Persistence: Logs training progress and saves models for reproducibility.
 
-Requirements
+**Requirements**
 
 Python 3.9+
 Libraries:numpy
@@ -28,17 +30,17 @@ Optional: CUDA Toolkit and cuDNN for GPU support (XGBoost and CatBoost).
 
 Installation
 
-Clone the Repository:
+**Clone the Repository:**
 git clone <repository-url>
 cd car-price-prediction
 
 
-Create a Virtual Environment (recommended):
+**Create a Virtual Environment (recommended):**
 conda create -n vehicle_price_env python=3.9
 conda activate vehicle_price_env
 
 
-Install Dependencies:
+**Install Dependencies:**
 pip install -r requirements.txt
 
 Or install manually:
@@ -55,11 +57,7 @@ Verify GPU availability:import torch
 print(torch.cuda.is_available())
 
 
-
-
-
-Dataset
-The pipeline expects:
+**Dataset**
 
 train.csv: Training data with columns like id, brand, model, model_year, milage, price (target).
 test.csv: Test data with the same features (excluding price).
@@ -76,7 +74,7 @@ Cell 1: Defines cross-validation function for XGBoost (cross_validate_model_x).
 Cell 2: Trains XGBoost with optimized parameters.
 Cell 7: Blends predictions (XGBoost, LightGBM, CatBoost, optional sub_1/sub_2) and generates submission.csv.
 
-Generate Submission:
+**Generate Submission:**
 
 The pipeline outputs submission.csv with id and price columns.
 Example:sample_sub = pd.DataFrame({'id': test['id'], 'price': test_predsx})
